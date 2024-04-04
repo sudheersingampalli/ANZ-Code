@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 @app.route('/healthcheck/')
-def hello_world(name):
+def hello_world():
    return f"I'm alive"
 
 '''
