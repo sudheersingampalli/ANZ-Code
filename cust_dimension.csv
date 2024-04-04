@@ -1,0 +1,6 @@
+cust_no,firstname,lastname,email,city,phonenumber
+1,John,Doe,johndoe@example.com,New York,(555) 123-4567
+2,Jane,Smith,janesmith@example.com,Los Angeles,(555) 987-6543
+3,Alice,Johnson,alicejohnson@example.com,Chicago,(555) 456-7890
+4,Michael,Williams,michaelwilliams@example.com,Houston,(555) 789-0123
+5,Emily,Brown,emilybrown@example.com,Miami,(555) 234-5678
