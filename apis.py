@@ -194,7 +194,3 @@ def add_customer():
         # Close cursor and connection
         cursor.close()
         conn.close()
-
-
-if __name__ == '__main__':
-    pass
