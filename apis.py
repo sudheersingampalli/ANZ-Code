@@ -104,7 +104,7 @@ def dropTable():
 
 '''
 Delete the row from table
-Returns 204
+Returns 204cus
 '''
 @app.route('/customer/<cust_no>', methods=['DELETE'])
 def deleteRow(cust_no):
@@ -194,3 +194,6 @@ def add_customer():
         # Close cursor and connection
         cursor.close()
         conn.close()
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
