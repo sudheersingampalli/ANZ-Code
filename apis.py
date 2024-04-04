@@ -106,7 +106,7 @@ def dropTable():
 Delete the row from table
 Returns 204
 '''
-@app.route('/delete_row/<cust_no>')
+@app.route('/customer/<cust_no>', methods=['DELETE'])
 def deleteRow(cust_no):
     try:
         with app.app_context():
@@ -131,7 +131,7 @@ def deleteRow(cust_no):
 '''
 Route to get a customer with customer ID.
 '''
-@app.route('/get_row/<cust_no>')
+@app.route('/customer/<cust_no>', methods=['GET'])
 def getRow(cust_no):
     # print(f'Getting Row')
     try:
@@ -156,7 +156,7 @@ def getRow(cust_no):
 '''
 Route to add a new row
 '''
-@app.route('/add_customer', methods=['POST'])
+@app.route('/customer', methods=['POST'])
 def add_customer():
     try:
         with app.app_context():
