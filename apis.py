@@ -3,15 +3,14 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/hello/<name>')
+@app.route('/healthcheck/')
 def hello_world(name):
-   return f"Hello, {name}!"
+   return f"I'm alive"
 
 '''
 Function to Create a table
 '''
 def initialize_app():
-    print("Inside initialize app")
     # Connect to the SQLite database (creates a new database if it doesn't exist)
     try:    
         conn = sqlite3.connect('customer.db')
@@ -40,7 +39,6 @@ Dump data from csv to SQLITE3
 '''
 @app.route('/dump_data/')
 def dumpData():
-    print("Inside dump data")
     try:
         # Initialize the Flask app
         initialize_app()
@@ -72,11 +70,9 @@ def dumpData():
             # Close the cursor and the connection
             cursor.close()
             conn.close()
-            print("Exit dump data")
         return jsonify({'message': 'Data dumped successfully'}), 200
 
     except Exception as e:
-        print("Exit dump data")
         return jsonify({'error': str(e)}), 500
 
 '''
@@ -85,7 +81,6 @@ Returns 200
 '''
 @app.route('/drop_table/')
 def dropTable():
-    print(f'Dropping table')
     try:
         with app.app_context():
             conn = sqlite3.connect('customer.db')
@@ -97,7 +92,6 @@ def dropTable():
             cursor.close()
             conn.close()
 
-        print(f'Table Dropped')
         return jsonify({'message': 'Table dropped successfully'}), 200
     except Exception as e:
        return jsonify({'error': str(e)}), 500 
@@ -133,7 +127,6 @@ Route to get a customer with customer ID.
 '''
 @app.route('/customer/<cust_no>', methods=['GET'])
 def getRow(cust_no):
-    # print(f'Getting Row')
     try:
         with app.app_context():
             conn = sqlite3.connect('customer.db')
@@ -147,7 +140,6 @@ def getRow(cust_no):
             cursor.close()
             conn.close()
 
-        # print(f'Row Seleted')
         return jsonify({'message': 'Row fetched successfully',
                         'data': rows}), 200
     except Exception as e:
